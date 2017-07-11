@@ -9,7 +9,8 @@ class Home extends Component {
             <div className="large-slogan-wrapper">
               <h3 className="large-slogan">whatever <span className="bold">you</span></h3>
               <h3 className="large-slogan">can <span className="bold">imagine</span></h3>
-              <h3 className="large-slogan"><span className="bold">we</span> can <span className="bold">deliver</span></h3>
+              <h3 className="large-slogan"><span className="bold">we</span> can <span className="bold">deliver</span>
+              </h3>
             </div>
             <div className="welcome-button-wrapper">
               <Button buttonName="PROJECT"/>
