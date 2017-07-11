@@ -1,0 +1,40 @@
+@import "variables.scss";
+
+
+html,
+body {
+	height: 100%;
+}
+
+.blue {
+	color: $blue;
+}
+
+.light-blue {
+	background-color: $light-blue;
+}
+
+.pink {
+	background-color: $pink;
+}
+
+.light-pink {
+	background-color: $light-pink;
+}
+
+.background-blue {
+	background-color: darken($blue, 2);
+}
+
+.row--flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.mobile-fix-height {
+	overflow: hidden;
+	height: 100vh;
+	@media (min-width: 768px) {
+		min-height: 680px;
+	}
+}
