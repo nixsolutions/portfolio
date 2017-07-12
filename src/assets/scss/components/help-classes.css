@@ -22,7 +22,7 @@ body {
   flex-wrap: wrap; }
 
 .mobile-fix-height {
-  overflow: hidden;
+  overflow: auto;
   height: 100vh; }
   @media (min-width: 768px) {
     .mobile-fix-height {

@@ -32,7 +32,7 @@ body {
 }
 
 .mobile-fix-height {
-	overflow: hidden;
+	overflow: auto;
 	height: 100vh;
 	@media (min-width: 768px) {
 		min-height: 680px;

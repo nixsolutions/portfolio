@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
-import  Project from '../project'
-import  Demo from '../demo'
+import { Link } from 'react-router-dom'
 
 class Home extends Component {
   render() {
     return (
-      <div className="content content--vertical-alignment">
+      <div className="content content--vertical-alignment background-blue">
         <div className="welcome-content-wrapper">
           <div className="welcome-content-alignment">
             <div className="large-slogan-wrapper">
@@ -20,9 +18,6 @@ class Home extends Component {
               <Link className="button-large" to="/project">PROJECT</Link>
               <span className="welcome-text">OR</span>
               <Link className="button-large" to="/demo">DEMO</Link>
-
-              <Route exact path="/project" component={Project}/>
-              <Route exact path="/demo" component={Demo}/>
             </div>
           </div>
         </div>
