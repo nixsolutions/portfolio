@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Contacts from '../contacts/index';
+import Contacts from "components/header/contacts";
 class InfoBox extends Component {
   render() {
     return (

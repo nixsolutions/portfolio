@@ -1,8 +1,8 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
 // import axios from 'axios';
-import MockData from '../constants/mock'
-import Project from '../components/project'
+import MockData from 'constants/mock'
+import Project from 'components/project'
 
 class ProjectList extends React.Component {
   constructor( props ) {
