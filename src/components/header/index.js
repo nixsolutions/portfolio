@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from '../common/logo/index'
+import Logo from './logo/index'
 import InfoBox from './infoBox/index'
 class Header extends Component {
   render() {

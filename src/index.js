@@ -6,10 +6,9 @@ import store, { history } from './store'
 import App from './components/app'
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/css/reset.css'
-import './assets/css/style.css'
-import './assets/scss/style.scss'
+import './assets/scss/style.css'
 
-const target = document.querySelector( '#root' )
+const target = document.querySelector( '#root' );
 
 render(
   <Provider store={store}>

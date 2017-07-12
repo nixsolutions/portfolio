@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%; }
+
+.blue {
+  color: #00aeef; }
+
+.light-blue {
+  background-color: #59bfe9; }
+
+.pink {
+  background-color: #c15c87; }
+
+.light-pink {
+  background-color: #ec7da1; }
+
+.background-blue {
+  background-color: #00a7e5; }
+
+.row--flex {
+  display: flex;
+  flex-wrap: wrap; }
+
+.mobile-fix-height {
+  overflow: hidden;
+  height: 100vh; }
+  @media (min-width: 768px) {
+    .mobile-fix-height {
+      min-height: 680px; } }

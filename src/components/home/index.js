@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import Button from '../common/largeButton'
+import { Route, Link } from 'react-router-dom'
+import  Project from '../project'
+import  Demo from '../demo'
+
 class Home extends Component {
   render() {
     return (
@@ -13,9 +16,13 @@ class Home extends Component {
               </h3>
             </div>
             <div className="welcome-button-wrapper">
-              <Button buttonName="PROJECT"/>
+
+              <Link className="button-large" to="/project">PROJECT</Link>
               <span className="welcome-text">OR</span>
-              <Button buttonName="DEMO"/>
+              <Link className="button-large" to="/demo">DEMO</Link>
+
+              <Route exact path="/project" component={Project}/>
+              <Route exact path="/demo" component={Demo}/>
             </div>
           </div>
         </div>
