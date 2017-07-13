@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 export function getProjects() {
-  return fetch( `http://10.10.54.142:8080/data` )
+  return fetch( `http://192.168.0.106:8080/data` )
     .then( ( r ) => r.json() );
 }
 

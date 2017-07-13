@@ -17,9 +17,20 @@ class Projects extends React.Component {
     super( props );
     this.state = {
       projects: [],
+      filteredProjects: [],
       types: []
     };
     this.loadProjects = bindActionCreators( loadProjects, store.dispatch );
+    this.handleClickUncheckAll = this.handleClickUncheckAll.bind( this );
+  }
+
+  filteredProject() {
+
+  }
+
+  handleClickUncheckAll() {
+    let types =  _.each(this.state.types, item => {item.checked = false});
+    this.setState({types: types})
   }
 
   componentDidMount() {
@@ -28,9 +39,10 @@ class Projects extends React.Component {
       state = store.getState();
       let projects = state.projects;
       projects.forEach( item => {
-        types.push( {name: item.language, checked: false} );
+        types.push( { name: item.language, checked: false } );
       } );
-      this.setState({projects: state.projects, types: _.sortedUniq( types )});
+      const typesSorted = _.uniqBy( types, ( type ) => type.name );
+      this.setState( { projects: state.projects, filteredProjects: state.projects, types: typesSorted } );
     } );
     this.loadProjects();
   }
@@ -47,12 +59,16 @@ class Projects extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12 col-sm-3 col-sm-push-9 col-lg-2 col-lg-push-10">
-                  <Categories types={this.state.types}/>
+                  <Categories
+                    projects={this.state.projects}
+                    types={this.state.types}
+                    onClick={i => this.handleClickUncheckAll( i )}
+                    onClick2={() => console.log('wow')}/>
                 </div>
                 <div className="col-xs-12 col-sm-9 col-sm-pull-3 col-lg-10 col-lg-pull-2">
                   <div className="row row--flex">
                     <ul>
-                      {this.state.projects.map( projects =>
+                      {this.state.filteredProjects.map( projects =>
                         <Project key={projects.id} value={projects}/>
                       )}
                     </ul>
