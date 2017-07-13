@@ -1,35 +1,30 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import promisesMiddleware from 'middlewares/promises'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from 'reducers/index'
+import logger from 'redux-logger'
 
-export const history = createHistory()
+export const history = createHistory();
 
-const initialState = {};
-const enhancers = [];
 const middleware = [
+  promisesMiddleware,
   thunk,
   routerMiddleware( history )
 ];
 
-if ( process.env.NODE_ENV === 'development' ) {
-  const devToolsExtension = window.devToolsExtension
-
-  if ( typeof devToolsExtension === 'function' ) {
-    enhancers.push( devToolsExtension() )
+function reducer( state, action ) {
+  return {
+    projects: rootReducer( state.projects, action )
   }
 }
 
-const composedEnhancers = compose(
-  applyMiddleware( ...middleware ),
-  ...enhancers
+const createStoreWithMiddleware = applyMiddleware( ...middleware, logger )( createStore );
+
+const store = createStoreWithMiddleware(
+  reducer,
+  { projects: [] }
 );
 
-const store = createStore(
-  rootReducer,
-  initialState,
-  composedEnhancers
-);
-
-export default store
+export default store;

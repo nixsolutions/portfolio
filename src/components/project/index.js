@@ -3,9 +3,8 @@ import React from 'react'
 class Project extends React.Component {
 
   render() {
-    console.log( this.props.value );
     return (
-      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3" >
+      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div className="cart-thumb">
           <div className="project-image-box">
             <div className="images-inner">
@@ -13,13 +12,17 @@ class Project extends React.Component {
               <img className="icon-image" src="images/icons/js.svg" alt="icon"/>
             </div>
             <div className="button-wrapper">
-              <a href="home" className="source-button">Source</a>
-              <a href="home" className="code-button">Code</a>
+              <a href={this.props.value.html_url} className="source-button">Source</a>
+              {this.props.value.has_pages &&
+              <a href={`https://nixsolutions.github.io/${this.props.value.name}`} className="code-button">Demo</a>
+              }
             </div>
           </div>
           <div className="button-wrapper-mobile">
-            <a href="home" className="source-button">Source</a>
-            <a href="home" className="code-button">Code</a>
+            <a href={this.props.value.html_url} className="source-button">Source</a>
+            {this.props.value.has_pages &&
+            <a href={`https://nixsolutions.github.io/${this.props.value.name}`} className="code-button">Demo</a>
+            }
           </div>
           <div className="project-text-inner">
             <h3 className="project-title">{this.props.value.name}</h3>
@@ -34,10 +37,7 @@ class Project extends React.Component {
                 <img className="icon-language-image" src="images/icons/gulp.svg" alt="lang"/>
               </li>
             </ul>
-            <p className="project-description"> Veritatis atque molestiae delectus aut. Veritatis atque molestiae
-              delectus
-              aut. Veritatis atque molestiae delectus aut. Veritatis atque molestiae delectus aut. Veritatis atque
-              molestiae delectus aut. </p>
+            <p className="project-description">{this.props.value.description}</p>
           </div>
         </div>
       </div>

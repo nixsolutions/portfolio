@@ -1,61 +1,53 @@
-// import ReactDOM from 'react-dom';
-// import axios from 'axios';
-// import MockData from 'constants/mock'
 import React from 'react';
 import Project from 'components/project'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { fetchPostsIfNeeded } from '../actions'
+import { loadProjects } from 'actions/index';
+import { bindActionCreators } from 'redux';
+import store from 'store/store'
+
+let state = store.getState();
+
+
+
+this.loadProjects = bindActionCreators(loadProjects, store.dispatch);
 
 class ProjectList extends React.Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired
-  };
-
-  constructor( props ) {
-    super( props );
-
-    this.state = {
-      posts: [],
-      username: 'nixsolutions'
-    };
+  constructor(props){
+    super(props);
+    this.loadProjects = bindActionCreators(loadProjects, store.dispatch);
   }
-
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchPostsIfNeeded());
-    console.log(this.props);
-    // this.setState( { posts: MockData.data } );
+    store.subscribe(() => {
+      state = store.getState();
+      this.projects = state.projects;
+    });
+    this.loadProjects();
   }
 
   render() {
-    return (
-      <div>
-        <ul>
-          {this.state.posts.map( projects =>
-            <Project key={projects.id}
-                      value={projects}/>
-          )}
-        </ul>
-      </div>
-    );
+    let isEmpty = true;
+    if (this.props.projects.length && this.props.projects.length !== 0) {
+      isEmpty = false;
+    }
+    if (!isEmpty) {
+      return (
+        <div>
+          <ul>
+            {this.props.projects.map( projects =>
+              <Project key={projects.id} value={projects}/>
+            )}
+          </ul>
+        </div>
+      );
+    }
+    return (<div>Empty list of project</div>)
   }
 }
 
-const mapStateToProps = state => {
-  const { projectsFromGitHub } = state;
-  const {
-    isFetching,
-    items: projects
-  } = projectsFromGitHub || {
-    isFetching: true,
-    items: []
-  };
-
-  return {
-    projects,
-    isFetching,
+export default connect(
+  ( state ) => {
+    return {
+      projects: state.projects
+    }
   }
-};
-
-export default connect(mapStateToProps)(ProjectList)
+)( ProjectList )

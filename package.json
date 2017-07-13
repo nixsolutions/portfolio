@@ -24,10 +24,11 @@
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start": "react-scripts start",
+    "start": "PORT=3007 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "json": "cd src/constants && json-server --watch --host 10.10.54.142 data.json --port 8080"
   },
   "devDependencies": {
     "create-react-app-sass": "^1.1.0"
