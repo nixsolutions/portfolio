@@ -10,30 +10,12 @@ class Categories extends Component {
           </div>
           <h3 className="categories-title">Categories</h3>
           <ul className="categories-inputs">
-            <li className="categories-input-wrapper">
-              <input type="checkbox" id="js" className="categories-input"/>
-              <label htmlFor="js" className="categories-label">JavaScript</label>
-            </li>
-            <li className="categories-input-wrapper">
-              <input type="checkbox" id="webDevelopment" className="categories-input"/>
-              <label htmlFor="webDevelopment" className="categories-label">Web Development</label>
-            </li>
-            <li className="categories-input-wrapper">
-              <input type="checkbox" id="php" className="categories-input"/>
-              <label htmlFor="php" className="categories-label">PHP</label>
-            </li>
-            <li className="categories-input-wrapper">
-              <input type="checkbox" id="frontEnd" className="categories-input"/>
-              <label htmlFor="frontEnd" className="categories-label">Front-End</label>
-            </li>
-            <li className="categories-input-wrapper">
-              <input type="checkbox" id="webApps" className="categories-input"/>
-              <label htmlFor="webApps" className="categories-label">Web Apps</label>
-            </li>
-            <li className="categories-input-wrapper">
-              <input type="checkbox" id="backEnd" className="categories-input"/>
-              <label htmlFor="backEnd" className="categories-label">Back-End</label>
-            </li>
+            {this.props.types.map( (type, index) =>
+              <li key={index} className="categories-input-wrapper">
+                <input type="checkbox" id={type.name} className="categories-input"/>
+                <label htmlFor={type.name} className="categories-label">{type.name}</label>
+              </li>
+            )}
           </ul>
           <div className="uncheck-inputs"><span className="uncheck-icon">X</span> <span className="uncheck-text">Uncheck All</span>
           </div>

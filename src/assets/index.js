@@ -31,5 +31,6 @@ const images = {
   HTML,
   TypeScript
 };
-
+// types in repos
+// ["HTML","JavaScript","CSS","TypeScript","CSS","HTML","JavaScript","HTML","JavaScript","TypeScript","JavaScript","PHP","CSS","PHP","JavaScript",null,"PHP"]
 export default images;
