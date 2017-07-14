@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
@@ -25,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "json": "cd src/constants && json-server --watch --host 192.168.0.106 data.json --port 8080",
+    "json": "cd src/constants && json-server --watch --host 10.10.54.142 data.json --port 8080",
     "build-css": "node-sass-chokidar src/ -o src/",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

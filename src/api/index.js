@@ -1,11 +1,13 @@
 import fetch from 'isomorphic-fetch';
+import Constants from 'constants/api.config';
 
 export function getProjects() {
-  return fetch( `http://192.168.0.106:8080/data` )
+  let body = {
+    headers: {
+      Authorization: 'token 31d5f34a2f49a290e560d2904f22d0b78dc6d4c7'
+    }
+  };
+
+  return fetch( `${Constants.API_ROOT}users/${Constants.USER_NAME}/repos`, body )
     .then( ( r ) => r.json() );
 }
-
-// export function getProjects() {
-//   return fetch( 'https://api.github.com/users/nixsolutions/repos' )
-//     .then( ( r ) => r.json() );
-// }

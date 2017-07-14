@@ -24,7 +24,9 @@ const createStoreWithMiddleware = applyMiddleware( ...middleware, logger )( crea
 
 const store = createStoreWithMiddleware(
   reducer,
-  { projects: [] }
+  {
+    projects: []
+  }
 );
 
 export default store;
