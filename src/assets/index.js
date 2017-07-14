@@ -1,4 +1,4 @@
-import CSS from 'assets/images/icons/angular.svg'
+import CSS from 'assets/images/icons/css.svg'
 import go from 'assets/images/icons/go.svg'
 import c_plus_plus from 'assets/images/icons/c_plus_plus.svg'
 import gulp from 'assets/images/icons/gulp.svg'
@@ -11,8 +11,8 @@ import ruby from 'assets/images/icons/ruby.svg'
 import swift from 'assets/images/icons/swift.svg'
 import WordPress from 'assets/images/icons/WordPress.svg'
 import sass from 'assets/images/icons/sass.svg'
-import HTML from 'assets/images/icons/sass.svg'
-import TypeScript from 'assets/images/icons/sass.svg'
+import HTML from 'assets/images/icons/html.svg'
+import TypeScript from 'assets/images/icons/typescript.svg'
 
 const images = {
   CSS,

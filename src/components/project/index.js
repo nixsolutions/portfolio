@@ -11,7 +11,6 @@ class Project extends React.Component {
             <div className="images-inner">
               <img className="background-image" src={this.props.value.owner.avatar_url} alt="background"/>
               <img className="icon-image" src={Images[ this.props.value.language ]} alt="icon"/>
-              {/*<img className="icon-image" src='src/assets/images/icons/angular.svg' alt="icon"/>*/}
             </div>
             <div className="button-wrapper">
               <a href={this.props.value.html_url} className="source-button">Source</a>
