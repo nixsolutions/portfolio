@@ -9,20 +9,20 @@ class Project extends React.Component {
         <div className="cart-thumb">
           <div className="project-image-box">
             <div className="images-inner">
-              <img className="background-image" src={this.props.value.owner.avatar_url} alt="background"/>
+              <img className="background-image" src={this.props.value.logo_background} alt="background"/>
               <img className="icon-image" src={Images[ this.props.value.language ]} alt="icon"/>
             </div>
             <div className="button-wrapper">
-              <a href={this.props.value.html_url} className="source-button">Source</a>
-              {this.props.value.has_pages &&
-              <a href={`https://nixsolutions.github.io/${this.props.value.name}`} className="code-button">Demo</a>
+              <a href={this.props.value.repository} className="source-button">Source</a>
+              {this.props.value.demo !== "" &&
+              <a href={this.props.value.demo} className="code-button">Demo</a>
               }
             </div>
           </div>
           <div className="button-wrapper-mobile">
-            <a href={this.props.value.html_url} className="source-button">Source</a>
-            {this.props.value.has_pages &&
-            <a href={`https://nixsolutions.github.io/${this.props.value.name}`} className="code-button">Demo</a>
+            <a href={this.props.value.repository} className="source-button">Source</a>
+            {this.props.value.demo !== "" &&
+            <a href={this.props.value.demo} className="code-button">Demo</a>
             }
           </div>
           <div className="project-text-inner">

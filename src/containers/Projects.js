@@ -8,7 +8,6 @@ import _ from 'lodash'
 import Categories from "../components/categories/index";
 import Footer from "../components/footer/index";
 
-this.loadProjects = bindActionCreators( loadProjects, store.dispatch );
 
 class Projects extends React.Component {
   constructor( props ) {
@@ -52,12 +51,12 @@ class Projects extends React.Component {
   }
 
   render() {
-    let projects = _.clone( this.props.projects );
+    let portfolio = _.clone( this.props.portfolio );
     if ( this.state.filter.length !== 0 ) {
-      projects = _.filter( this.props.projects, ( project ) => this.state.filter.indexOf( project.language ) !== -1 )
+      portfolio = _.filter( this.props.portfolio, ( project ) => this.state.filter.indexOf( project.language ) !== -1 )
     }
 
-    if ( this.props.projects.length && this.props.projects.length !== 0 ) {
+    if ( this.props.portfolio.length && this.props.portfolio.length !== 0 ) {
       return (
         <div>
           <div className="content">
@@ -65,7 +64,7 @@ class Projects extends React.Component {
               <div className="row">
                 <div className="col-xs-12 col-sm-3 col-sm-push-9 col-lg-2 col-lg-push-10">
                   <Categories
-                    projects={this.props.projects}
+                    projects={this.props.portfolio}
                     types={this.setFilters()}
                     onUnchecked={i => this.handleClickUncheckAll( i )}
                     onClickFilter={( type ) => this.filterProjects( type )}
@@ -73,9 +72,9 @@ class Projects extends React.Component {
                 </div>
                 <div className="col-xs-12 col-sm-9 col-sm-pull-3 col-lg-10 col-lg-pull-2">
                   <div className="row row--flex">
-                    <ul className="projects-list">
-                      {projects.map( projects =>
-                        <Project key={projects.id} value={projects}/>
+                    <ul className="portfolio-list">
+                      {portfolio.map( (project, item) =>
+                        <Project key={item} value={project}/>
                       )}
                     </ul>
                   </div>
@@ -94,8 +93,10 @@ class Projects extends React.Component {
 }
 
 const mapStateToProps = function ( store ) {
+  console.log(store);
   return {
-    projects: store.projects
+    projects: store.projects,
+    portfolio: store.portfolio
   };
 };
 

@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-import projectReducer from 'reducers/index';
+import projectReducer from 'reducers/Projects';
 function reducer( state, action ) {
   return {
     projects: projectReducer( state.projects, action )
