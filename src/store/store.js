@@ -7,6 +7,7 @@ import Projects from 'reducers/Projects'
 import Portfolio from 'reducers/Portfolio'
 import logger from 'redux-logger'
 
+
 export const history = createHistory();
 
 const middleware = [

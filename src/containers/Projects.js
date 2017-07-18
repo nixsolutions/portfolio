@@ -1,12 +1,14 @@
-import React from 'react';
-import Project from 'components/project'
-import { connect } from 'react-redux'
-import { loadProjects } from 'actions/getProjects';
-import { bindActionCreators } from 'redux';
-import store from 'store/store'
-import _ from 'lodash'
 import Categories from "../components/categories/index";
+import { loadProjects } from 'actions/getProjects';
 import Footer from "../components/footer/index";
+import Spinner from 'components/spinner/index';
+import { bindActionCreators } from 'redux';
+import Project from 'components/project';
+import { connect } from 'react-redux';
+import store from 'store/store';
+import React from 'react';
+import _ from 'lodash';
+
 
 class Projects extends React.Component {
   constructor( props ) {
@@ -57,6 +59,7 @@ class Projects extends React.Component {
 
     if ( this.props.portfolio.length && this.props.portfolio.length !== 0 ) {
       return (
+
         <div>
           <div className="content">
             <div className="container">
@@ -70,7 +73,7 @@ class Projects extends React.Component {
                     uncheckAll={() => this.handleUncheckAll()}/>
                 </div>
                 <div className="col-xs-12 col-sm-9 col-sm-pull-3 col-lg-10 col-lg-pull-2">
-                  <div className="row row--flex">
+                  <div className="row">
                     <ul className="projects-list">
                       {portfolio.map( ( project, item ) =>
                         <Project key={item} value={project}/>
@@ -86,7 +89,7 @@ class Projects extends React.Component {
       );
     }
     return (
-      <div>Empty list of project</div>
+      <Spinner/>
     )
   }
 }
@@ -94,8 +97,8 @@ class Projects extends React.Component {
 const mapStateToProps = function ( store ) {
   return {
     projects: store.projects,
-    portfolio: store.portfolio,
-    types: store.types
+    showSpinnerProjects: store.showSpinnerProjects,
+    portfolio: store.portfolio
   };
 };
 
