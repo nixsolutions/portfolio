@@ -1,10 +1,9 @@
 import React from 'react';
 import Header from '../header'
 import Home from '../home'
-import Projects from '../../containers/Projects'
-import  Demo from '../demo'
+import Projects from 'containers/DemoProjects'
+import Demo from 'containers/Projects'
 import { Route } from 'react-router-dom'
-
 
 const App = () => (
   <div className="page-container mobile-fix-height">
