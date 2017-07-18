@@ -6,14 +6,13 @@ import createHistory from 'history/createBrowserHistory'
 import Projects from 'reducers/Projects'
 import Portfolio from 'reducers/Portfolio'
 import logger from 'redux-logger'
-import { combineReducers } from 'redux'
 
 export const history = createHistory();
 
 const middleware = [
-promisesMiddleware,
-thunk,
-routerMiddleware( history )
+  promisesMiddleware,
+  thunk,
+  routerMiddleware( history )
 ];
 
 function reducer( state, action ) {

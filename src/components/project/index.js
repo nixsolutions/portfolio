@@ -2,7 +2,6 @@ import React from 'react'
 import Images from 'assets/index'
 
 class Project extends React.Component {
-
   render() {
     return (
       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -28,9 +27,12 @@ class Project extends React.Component {
           <div className="project-text-inner">
             <h3 className="project-title">{this.props.value.name}</h3>
             <ul className="project-icon-languages">
-              <li className="icon-language">
-                <img className="icon-language-image" src={Images[ this.props.value.language ]} alt="lang"/>
-              </li>
+              {this.props.value.technology.map( ( lang, item ) =>
+                <li className="icon-language" key={item}>
+                  <img className="icon-language-image" src={Images[ lang ]} alt="lang"/>
+                </li>
+              )}
+
             </ul>
             <p className="project-description">{this.props.value.description}</p>
           </div>

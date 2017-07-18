@@ -10,8 +10,8 @@ const App = () => (
   <div className="page-container mobile-fix-height">
     <Header/>
     <Route exact path="/" component={Home}/>
-    <Route exact path="/project" component={Projects}/>
-    <Route exact path="/demo" component={Demo}/>
+    <Route exact path="/project" component={Demo}/>
+    <Route exact path="/demo" component={Projects}/>
   </div>
 );
 

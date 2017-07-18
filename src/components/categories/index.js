@@ -6,16 +6,21 @@ class Categories extends Component {
   constructor( props ) {
     super( props );
     this.state = {
-      types: this.props.types,
+      types: props.types,
       listToggle: false
     };
     this.handleOnClickChecked = this.handleOnClickChecked.bind( this );
   }
 
-  handleOnClickChecked( type ) {
-    !type.checked ? type.checked = true : type.checked = false;
-    this.setState( this.props.types );
+  componentWillReceiveProps(nextProps){
+    if (nextProps.types.length !== this.state.types.length) {
+      this.setState({types: nextProps.types});
+    }
+  }
 
+  handleOnClickChecked( type, types ) {
+    !type.checked ? type.checked = true : type.checked = false;
+    this.setState({types: types});
   }
 
   handleClickUncheckAll() {
@@ -45,11 +50,11 @@ class Categories extends Component {
           </div>
           <h3 className="categories-title">Categories</h3>
           <ul className={ulClass}>
-            {this.state.types.map( ( type, index ) =>
+            {this.state.types.map( ( type, index, types ) =>
               <li key={index} className="categories-input-wrapper">
                 <input type="checkbox" id={type.name} checked={type.checked === true} className="categories-input"
-                       onChange={( e ) => this.handleOnClickChecked( type )}
-                       onClick={() => this.props.onClickFilter( type )}/>
+                       onChange={( e ) => this.handleOnClickChecked( type, types)}
+                       onClick={() => { this.props.onClickFilter( type )}}/>
                 <label htmlFor={type.name} className="categories-label">{type.name}</label>
               </li>
             )}
@@ -68,4 +73,4 @@ class Categories extends Component {
   }
 }
 
-export default Categories;
+export default ( Categories )

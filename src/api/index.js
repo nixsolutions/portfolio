@@ -13,7 +13,6 @@ export function getProjects() {
 }
 
 export function getPortfolio( reposName ) {
-  console.log( reposName );
-  return fetch( `${Constants.API_USERCONTENT}${Constants.USER_NAME}/${reposName}/master/.Portfolio.json` )
+  return fetch( `${Constants.API_USERCONTENT}${Constants.USER_NAME}/${reposName}/master/.portfolio/.Portfolio.json` )
     .then( ( r ) => r.json() );
 }

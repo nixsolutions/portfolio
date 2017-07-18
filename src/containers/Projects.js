@@ -8,7 +8,6 @@ import _ from 'lodash'
 import Categories from "../components/categories/index";
 import Footer from "../components/footer/index";
 
-
 class Projects extends React.Component {
   constructor( props ) {
     super( props );
@@ -18,30 +17,30 @@ class Projects extends React.Component {
     this.loadProjects = bindActionCreators( loadProjects, store.dispatch );
   }
 
+  componentDidMount() {
+    this.loadProjects();
+  }
+
   filterProjects( type ) {
     let index = this.state.filter.indexOf( type.name );
     let filters = this.state.filter;
     if ( index > -1 ) {
-      filters.splice(index, 1)
+      filters.splice( index, 1 )
     } else {
       filters.push( type.name );
     }
     this.setState( { filter: filters } );
   }
 
-  handleUncheckAll(){
+  handleUncheckAll() {
     this.setState( { filter: [] } );
-  }
-
-  componentDidMount() {
-    this.loadProjects();
   }
 
   setFilters() {
     let types = [];
-    let projects = _.clone( this.props.projects );
-    projects.forEach( item => {
-      if (!item.language) {
+    let portfolio = _.clone( this.props.portfolio );
+    portfolio.forEach( item => {
+      if ( !item.language ) {
         item.language = 'With out category';
       }
       types.push( { name: item.language, checked: false } );
@@ -72,8 +71,8 @@ class Projects extends React.Component {
                 </div>
                 <div className="col-xs-12 col-sm-9 col-sm-pull-3 col-lg-10 col-lg-pull-2">
                   <div className="row row--flex">
-                    <ul className="portfolio-list">
-                      {portfolio.map( (project, item) =>
+                    <ul className="projects-list">
+                      {portfolio.map( ( project, item ) =>
                         <Project key={item} value={project}/>
                       )}
                     </ul>
@@ -93,10 +92,10 @@ class Projects extends React.Component {
 }
 
 const mapStateToProps = function ( store ) {
-  console.log(store);
   return {
     projects: store.projects,
-    portfolio: store.portfolio
+    portfolio: store.portfolio,
+    types: store.types
   };
 };
 
