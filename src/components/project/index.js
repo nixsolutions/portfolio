@@ -1,5 +1,5 @@
-import React from 'react'
-import Images from 'assets/index'
+import React from 'react';
+import Images from '../../assets/index';
 
 class Project extends React.Component {
   render() {
@@ -8,29 +8,29 @@ class Project extends React.Component {
         <div className="cart-thumb">
           <div className="project-image-box">
             <div className="images-inner">
-              <img className="background-image" src={this.props.value.logo_background} alt="background"/>
-              <img className="icon-image" src={Images[ this.props.value.language ]} alt="icon"/>
+              <img className="background-image" src={this.props.value.logo_background} alt="background" />
+              <img className="icon-image" src={Images[this.props.value.language]} alt="icon" />
             </div>
             <div className="button-wrapper">
               <a href={this.props.value.repository} className="source-button">Source</a>
-              {this.props.value.demo !== "" &&
+              {this.props.value.demo !== '' &&
               <a href={this.props.value.demo} className="code-button">Demo</a>
               }
             </div>
           </div>
           <div className="button-wrapper-mobile">
             <a href={this.props.value.repository} className="source-button">Source</a>
-            {this.props.value.demo !== "" &&
+            {this.props.value.demo !== '' &&
             <a href={this.props.value.demo} className="code-button">Demo</a>
             }
           </div>
           <div className="project-text-inner">
             <h3 className="project-title">{this.props.value.name}</h3>
             <ul className="project-icon-languages">
-              {this.props.value.technology.map( ( lang, item ) =>
-                <li className="icon-language" key={item}>
-                  <img className="icon-language-image" src={Images[ lang ]} alt="lang"/>
-                </li>
+              {this.props.value.technology.map((lang, item) =>
+                (<li className="icon-language" key={item}>
+                  <img className="icon-language-image" src={Images[lang]} alt="lang" />
+                </li>),
               )}
 
             </ul>
@@ -42,4 +42,4 @@ class Project extends React.Component {
   }
 }
 
-export default Project
+export default Project;

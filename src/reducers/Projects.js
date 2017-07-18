@@ -1,16 +1,7 @@
-export default function ( state =  {projects: [], showSpinnerProjects: false}, action ) {
+export default function (state = [], action) {
   switch (action.type) {
-    case 'PROJECTS_LOADING':
-      return {
-        ...state,
-        projects: [],
-        showSpinnerProjects: true
-      };
     case 'PROJECTS_LOADED':
-      return {...state,
-        projects: action.data,
-        showSpinnerProjects: false
-      };
+      return [...state, action.data];
     default:
       return state;
   }

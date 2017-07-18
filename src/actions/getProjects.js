@@ -1,9 +1,9 @@
-import { getProjects } from 'api/index';
+import { getProjects } from '../api/index';
 
-export function loadProjects() {
+export default function () {
   return {
     type: 'PROMISE',
     actions: ['PROJECTS_LOADING', 'PROJECTS_LOADED', 'PROJECTS_LOAD_FAILURE'],
-    promise: getProjects()
+    promise: getProjects(),
   };
 }

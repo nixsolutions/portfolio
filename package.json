@@ -7,6 +7,8 @@
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
+    "eslint-config-airbnb": "^15.0.2",
+    "history": "^4.6.3",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "node-sass-chokidar": "0.0.3",
@@ -30,10 +32,18 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src test build"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "create-react-app-sass": "^1.1.0",
+    "eslint": "^3.19.0",
+    "eslint-config-react-app": "^1.0.5",
+    "eslint-plugin-flowtype": "^2.33.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
     "json-server": "^0.11.2"
   }
 }

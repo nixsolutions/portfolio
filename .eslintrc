@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".jsx", ".js"]
+    }],
+    "jsx-a11y/anchor-has-content": "off",
+    "react/no-array-index-key": "off",
+    "react/prop-types": 0,
+    "react/forbid-prop-types": ["error", {
+      "forbid": ["any", "array", "object"]
+    }],
+    "jsx-a11y/href-no-hash": "off", // it's vary BAD
+    "jsx-a11y/anchor-is-valid": [0, {
+      "aspects": ["invalidHref"]
+    }],
+    "semi": [2, "always"],
+    "import/extensions": [0, "always"]
+  },
+  "env": {
+    "browser": true
+  }
+}

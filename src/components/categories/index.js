@@ -1,47 +1,47 @@
 import React, { Component } from 'react';
 import classNames from 'classnames/bind';
-import _ from 'lodash'
+import _ from 'lodash';
 
 class Categories extends Component {
-  constructor( props ) {
-    super( props );
+  constructor(props) {
+    super(props);
     this.state = {
       types: props.types,
-      listToggle: false
+      listToggle: false,
     };
-    this.handleOnClickChecked = this.handleOnClickChecked.bind( this );
+    this.handleOnClickChecked = this.handleOnClickChecked.bind(this);
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     if (nextProps.types.length !== this.state.types.length) {
-      this.setState({types: nextProps.types});
+      this.setState({ types: nextProps.types });
     }
   }
 
-  handleOnClickChecked( type, types ) {
+  handleOnClickChecked(type, index, types) {
     !type.checked ? type.checked = true : type.checked = false;
-    this.setState({types: types});
+    this.setState({ types });
   }
 
   handleClickUncheckAll() {
-    _.each( this.state.types, item => {
-      item.checked = false
-    } );
-    this.setState( this.props.types );
+    _.each(this.state.types, (item) => {
+      item.checked = false;
+    });
+    this.setState(this.props.types);
     this.props.uncheckAll();
   }
 
-  moreCategories(){
+  moreCategories() {
     let status = this.state.listToggle;
     !status ? status = true : status = false;
-    this.setState({listToggle: status});
+    this.setState({ listToggle: status });
   }
 
   render() {
-    const ulClass = classNames( {
+    const ulClass = classNames({
       'categories-inputs': true,
-      'active': this.state.listToggle
-    } );
+      active: this.state.listToggle,
+    });
     return (
       <div className="filters-inner">
         <div className="filters">
@@ -50,22 +50,33 @@ class Categories extends Component {
           </div>
           <h3 className="categories-title">Categories</h3>
           <ul className={ulClass}>
-            {this.state.types.map( ( type, index, types ) =>
-              <li key={index} className="categories-input-wrapper">
-                <input type="checkbox" id={type.name} checked={type.checked === true} className="categories-input"
-                       onChange={( e ) => this.handleOnClickChecked( type, types)}
-                       onClick={() => { this.props.onClickFilter( type )}}/>
+            {this.state.types.map((type, index, types) =>
+              (<li key={index} className="categories-input-wrapper">
+                <input
+                  type="checkbox"
+                  id={type.name}
+                  checked={type.checked === true}
+                  className="categories-input"
+                  onChange={() => this.handleOnClickChecked(type, index, types)}
+                  onClick={() => {
+                    this.props.onClickFilter(type);
+                  }}
+                />
                 <label htmlFor={type.name} className="categories-label">{type.name}</label>
-              </li>
+              </li>),
             )}
           </ul>
-          <div className="uncheck-inputs"
-               onClick={() => this.handleClickUncheckAll()}>
+          <div
+            className="uncheck-inputs"
+            onClick={() => this.handleClickUncheckAll()}
+          >
             <span className="uncheck-icon">X</span>
             <span className="uncheck-text">Uncheck All</span>
           </div>
-          <div className="more-categories"
-               onClick={() => this.moreCategories()}></div>
+          <div
+            className="more-categories"
+            onClick={() => this.moreCategories()}
+          />
         </div>
         <a href="home" className="filters-apply">Apply</a>
       </div>
@@ -73,4 +84,4 @@ class Categories extends Component {
   }
 }
 
-export default ( Categories )
+export default Categories;

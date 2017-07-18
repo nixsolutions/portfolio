@@ -1,22 +1,22 @@
-import Categories from "../components/categories/index";
-import { loadProjects } from 'actions/getProjects';
-import Footer from "../components/footer/index";
-import Spinner from 'components/spinner/index';
-import { bindActionCreators } from 'redux';
-import Project from 'components/project';
-import { connect } from 'react-redux';
-import store from 'store/store';
-import React from 'react';
 import _ from 'lodash';
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Categories from '../components/categories/index';
+import loadProjects from '../actions/getProjects';
+import Footer from '../components/footer/index';
+import Spinner from '../components/spinner/index';
+import Project from '../components/project';
+import rootstore from '../store/store';
 
 
 class DemoProjects extends React.Component {
-  constructor( props ) {
-    super( props );
+  constructor(props) {
+    super(props);
     this.state = {
-      filter: []
+      filter: [],
     };
-    this.loadProjects = bindActionCreators( loadProjects, store.dispatch );
+    this.loadProjects = bindActionCreators(loadProjects, rootstore.dispatch);
   }
 
   componentDidMount() {
@@ -25,43 +25,44 @@ class DemoProjects extends React.Component {
     }
   }
 
-  filterProjects( type ) {
-    let index = this.state.filter.indexOf( type.name );
-    let filters = this.state.filter;
-    if ( index > -1 ) {
-      filters.splice( index, 1 )
-    } else {
-      filters.push( type.name );
-    }
-    this.setState( { filter: filters } );
-  }
-
-  handleUncheckAll() {
-    this.setState( { filter: [] } );
-  }
-
   setFilters() {
-    let types = [];
-    let portfolio = _.clone( this.props.portfolio );
-    portfolio.forEach( item => {
-      if ( !item.language ) {
-        item.language = 'With out category';
+    const types = [];
+    const portfolio = _.clone(this.props.portfolio);
+    portfolio.forEach((item) => {
+      let lang = item.language;
+      if (!item.language) {
+        lang = 'With out category';
       }
-      types.push( { name: item.language, checked: false } );
-    } );
-    const typesSorted = _.uniqBy( types, ( type ) => type.name );
+      types.push({ name: lang, checked: false });
+    });
+    const typesSorted = _.uniqBy(types, type => type.name);
     return typesSorted;
   }
 
+  filterProjects(type) {
+    const index = this.state.filter.indexOf(type.name);
+    const filters = this.state.filter;
+    if (index > -1) {
+      filters.splice(index, 1);
+    } else {
+      filters.push(type.name);
+    }
+    this.setState({ filter: filters });
+  }
+
+  handleUncheckAll() {
+    this.setState({ filter: [] });
+  }
+
   render() {
-    let portfolio = _.clone( this.props.portfolio );
-    if ( this.state.filter.length !== 0 ) {
-      portfolio = _.filter( this.props.portfolio, ( project ) => this.state.filter.indexOf( project.language ) !== -1 )
+    let portfolio = _.clone(this.props.portfolio);
+    if (this.state.filter.length !== 0) {
+      portfolio = _.filter(this.props.portfolio, project =>
+      this.state.filter.indexOf(project.language) !== -1);
     }
 
-    if ( this.props.portfolio.length && this.props.portfolio.length !== 0 ) {
+    if (this.props.portfolio.length && this.props.portfolio.length !== 0) {
       return (
-
         <div>
           <div className="content">
             <div className="container">
@@ -70,15 +71,16 @@ class DemoProjects extends React.Component {
                   <Categories
                     projects={this.props.portfolio}
                     types={this.setFilters()}
-                    onUnchecked={i => this.handleClickUncheckAll( i )}
-                    onClickFilter={( type ) => this.filterProjects( type )}
-                    uncheckAll={() => this.handleUncheckAll()}/>
+                    onUnchecked={i => this.handleClickUncheckAll(i)}
+                    onClickFilter={type => this.filterProjects(type)}
+                    uncheckAll={() => this.handleUncheckAll()}
+                  />
                 </div>
                 <div className="col-xs-12 col-sm-9 col-sm-pull-3 col-lg-10 col-lg-pull-2">
                   <div className="row">
                     <ul className="projects-list">
-                      {portfolio.map( ( project, item ) =>
-                        <Project key={item} value={project}/>
+                      {portfolio.map((project, item) =>
+                        <Project key={item} value={project} />,
                       )}
                     </ul>
                   </div>
@@ -86,22 +88,21 @@ class DemoProjects extends React.Component {
               </div>
             </div>
           </div>
-          <Footer/>
+          <Footer />
         </div>
       );
     }
     return (
-      <Spinner/>
-    )
+      <Spinner />
+    );
   }
 }
 
-const mapStateToProps = function ( store ) {
+const mapStateToProps = function (store) {
   return {
     projects: store.projects,
-    showSpinnerProjects: store.showSpinnerProjects,
-    portfolio: store.portfolio
+    portfolio: store.portfolio,
   };
 };
 
-export default connect( mapStateToProps )( DemoProjects )
+export default connect(mapStateToProps)(DemoProjects);
