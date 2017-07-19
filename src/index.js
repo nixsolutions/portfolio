@@ -12,7 +12,7 @@ import './assets/css/reset.css';
 
 const middleware = [thunk];
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   middleware.push(createLogger());
 }
 
