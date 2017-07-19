@@ -4,7 +4,10 @@ import Images from '../../assets/index';
 import './style.css';
 
 class Project extends React.Component {
+
   render() {
+    const unicId = (Math.random()).toFixed(3);
+    console.log(unicId);
     return (
       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div className="cart-thumb">
@@ -30,8 +33,8 @@ class Project extends React.Component {
             <h3 className="project-title">{this.props.value.name}</h3>
             <ul className="project-icon-languages">
               {this.props.value.technology.map((lang, item) =>
-                (<li data-tip={lang} className="icon-language" key={item}>
-                  <ReactTooltip place="top" type="info" effect="float" delayShow={50} className="tooltip-categories" />
+                (<li data-tip={lang} data-for={`icon${lang}${unicId}`} className="icon-language" key={item}>
+                  <ReactTooltip id={`icon${lang}${unicId}`} place="top" type="info" effect="float" className="tooltip-categories" />
                   <img className="icon-language-image" src={Images[lang]} alt="lang" />
                 </li>),
               )}
