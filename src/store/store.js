@@ -14,7 +14,11 @@ const middleware = [
   routerMiddleware(history),
 ];
 
-const createStoreWithMiddleware = applyMiddleware(...middleware, logger)(createStore);
+if (process.env.NODE_ENV === 'development') {
+  middleware.push(logger);
+}
+
+const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 
 const store = createStoreWithMiddleware(reducers);
 
