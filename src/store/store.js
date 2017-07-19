@@ -6,6 +6,7 @@ import createHistory from 'history/createBrowserHistory';
 import promisesMiddleware from '../middlewares/promises';
 import reducers from '../reducers/index';
 
+
 export const history = createHistory();
 
 const middleware = [

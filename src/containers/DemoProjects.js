@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Categories from '../components/categories/index';
+import Categories from './Categories';
 import loadProjects from '../actions/getProjects';
 import Footer from '../components/footer/index';
 import Spinner from '../components/spinner/index';

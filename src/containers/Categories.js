@@ -73,10 +73,12 @@ class Categories extends Component {
             <span className="uncheck-icon">X</span>
             <span className="uncheck-text">Uncheck All</span>
           </div>
-          <div
-            className="more-categories"
-            onClick={() => this.moreCategories()}
-          />
+          {this.state.types.length > 7 &&
+            <div
+              className="more-categories"
+              onClick={() => this.moreCategories()}
+            />
+          }
         </div>
         <a href="home" className="filters-apply">Apply</a>
       </div>
