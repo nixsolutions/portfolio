@@ -73,7 +73,7 @@ class Categories extends Component {
             <span className="uncheck-icon">X</span>
             <span className="uncheck-text">Uncheck All</span>
           </div>
-          {this.state.types.length > 7 &&
+          {this.state.types.length > 5 &&
             <div
               className="more-categories"
               onClick={() => this.moreCategories()}
