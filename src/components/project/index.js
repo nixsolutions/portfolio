@@ -7,7 +7,6 @@ class Project extends React.Component {
 
   render() {
     const unicId = (Math.random()).toFixed(3);
-    console.log(unicId);
     return (
       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div className="cart-thumb">
