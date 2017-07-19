@@ -33,7 +33,7 @@ class Project extends React.Component {
             <ul className="project-icon-languages">
               {this.props.value.technology.map((lang, item) =>
                 (<li data-tip={lang} data-for={`icon${lang}${unicId}`} className="icon-language" key={item}>
-                  <ReactTooltip id={`icon${lang}${unicId}`} place="top" type="info" effect="float" className="tooltip-categories" />
+                  <ReactTooltip id={`icon${lang}${unicId}`} place="top" delayShow={50} type="info" effect="float" className="tooltip-categories" />
                   <img className="icon-language-image" src={Images[lang]} alt="lang" />
                 </li>),
               )}
