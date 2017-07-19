@@ -100,8 +100,8 @@ class DemoProjects extends React.Component {
 
 const mapStateToProps = function (store) {
   return {
-    projects: store.projects,
-    portfolio: store.portfolio,
+    projects: store.projects.projects,
+    portfolio: store.portfolio.portfolio,
   };
 };
 
