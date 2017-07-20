@@ -4,18 +4,22 @@ import Images from '../../assets/images/icons/index';
 import './style.css';
 
 class Project extends React.Component {
-  render() {
+  componentWillMount() {
     function getRandomArbitrary(min, max) {
       return (Math.random() * (max - min)) + min;
     }
     const unicId = (getRandomArbitrary(1, 72).toFixed(0));
-    const bgImg = require(`../../assets/images/background/background_image_${unicId}.svg`);
+    const bgImage = require(`../../assets/images/background/background_image_${unicId}.svg`);
+    this.setState({ bgImage, unicId });
+  }
+
+  render() {
     return (
       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div className="cart-thumb">
           <div className="project-image-box">
             <div className="images-inner">
-              <img className="background-image" src={bgImg} alt="background" />
+              <img className="background-image" src={this.state.bgImage} alt="background" />
               <img className="icon-image" src={Images[this.props.value.language]} alt="icon" />
             </div>
             <div className="button-wrapper">
@@ -35,8 +39,8 @@ class Project extends React.Component {
             <h3 className="project-title">{this.props.value.name}</h3>
             <ul className="project-icon-languages">
               {this.props.value.technology.map((lang, item) =>
-                (<li data-tip={lang} data-for={`icon${lang}${unicId}`} className="icon-language" key={item}>
-                  <ReactTooltip id={`icon${lang}${unicId}`} place="top" delayShow={50} type="info" effect="float" className="tooltip-categories" />
+                (<li data-tip={lang} data-for={`icon${lang}${this.state.unicId}`} className="icon-language" key={item}>
+                  <ReactTooltip id={`icon${lang}${this.state.unicId}`} place="top" delayShow={50} type="info" effect="float" className="tooltip-categories" />
                   <img className="icon-language-image" src={Images[lang]} alt="lang" />
                 </li>),
               )}

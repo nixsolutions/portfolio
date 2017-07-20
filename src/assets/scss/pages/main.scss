@@ -212,6 +212,11 @@ input[type=checkbox].categories-input:checked ~ .categories-label:before {
   }
 }
 
+.uncheck-inputs-disabled span{
+  color: #999999;
+  cursor: default;
+}
+
 .uncheck-icon {
   display: inline-block;
   margin-right: 10px;
