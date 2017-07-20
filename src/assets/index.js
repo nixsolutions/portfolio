@@ -15,6 +15,12 @@ import sass from './images/icons/sass.svg';
 import html from './images/icons/html.svg';
 import TypeScript from './images/icons/typescript.svg';
 
+import bg1 from './images/background/background_image_01.svg';
+import bg2 from './images/background/background_image_02.svg';
+import bg3 from './images/background/background_image_03.svg';
+import bg4 from './images/background/background_image_04.svg';
+import bg5 from './images/background/background_image_05.svg';
+
 const images = {
   angular,
   CSS,
@@ -32,5 +38,10 @@ const images = {
   sass,
   html,
   TypeScript,
+  bg1,
+  bg2,
+  bg3,
+  bg4,
+  bg5,
 };
 export default images;

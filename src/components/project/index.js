@@ -4,7 +4,6 @@ import Images from '../../assets/index';
 import './style.css';
 
 class Project extends React.Component {
-
   render() {
     const unicId = (Math.random()).toFixed(3);
     return (
@@ -12,7 +11,7 @@ class Project extends React.Component {
         <div className="cart-thumb">
           <div className="project-image-box">
             <div className="images-inner">
-              <img className="background-image" src={this.props.value.logo_background} alt="background" />
+              <img className="background-image" src={Images[this.props.value.logo_background]} alt="background" />
               <img className="icon-image" src={Images[this.props.value.language]} alt="icon" />
             </div>
             <div className="button-wrapper">
