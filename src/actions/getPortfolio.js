@@ -1,9 +1,23 @@
-import { getPortfolio } from '../api/index';
+export const REQUEST_PORTFOLIO = 'REQUEST_PORTFOLIO';
+export const RECEIVE_PORTFOLIO = 'RECEIVE_PORTFOLIO';
+export const FAILURE_PORTFOLIO = 'FAILURE_PORTFOLIO';
 
-export default function (projectName) {
+export function requestPortfolio() {
   return {
-    type: 'PROMISE',
-    actions: ['PORTFOLIO_LOADING', 'PORTFOLIO_LOADED', 'PORTFOLIO_LOAD_FAILURE'],
-    promise: getPortfolio(projectName),
+    type: REQUEST_PORTFOLIO,
+  };
+}
+
+export function receivePortfolio(data) {
+  return {
+    type: RECEIVE_PORTFOLIO,
+    data,
+  };
+}
+
+export function failurePortfolio(data) {
+  return {
+    type: FAILURE_PORTFOLIO,
+    data,
   };
 }
