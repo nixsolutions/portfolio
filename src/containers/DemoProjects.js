@@ -9,7 +9,6 @@ import Spinner from '../components/spinner/index';
 import Project from '../components/project';
 import rootstore from '../store/store';
 
-
 class DemoProjects extends React.Component {
   constructor(props) {
     super(props);
@@ -55,13 +54,15 @@ class DemoProjects extends React.Component {
   }
 
   render() {
-    let portfolio = _.clone(this.props.portfolio);
+    const portfolio = this.props.portfolio;
+
+    let portfolioFiltered = _.clone(portfolio);
     if (this.state.filter.length !== 0) {
-      portfolio = _.filter(this.props.portfolio, project =>
+      portfolioFiltered = _.filter(portfolio, project =>
       this.state.filter.indexOf(project.language) !== -1);
     }
 
-    if (this.props.portfolio.length && this.props.portfolio.length !== 0) {
+    if (portfolio.length && portfolio.length !== 0) {
       return (
         <div>
           <div className="content">
@@ -69,7 +70,7 @@ class DemoProjects extends React.Component {
               <div className="row">
                 <div className="col-xs-12 col-sm-3 col-sm-push-9 col-lg-2 col-lg-push-10">
                   <Categories
-                    projects={this.props.portfolio}
+                    projects={portfolio}
                     types={this.setFilters()}
                     onUnchecked={i => this.handleClickUncheckAll(i)}
                     onClickFilter={type => this.filterProjects(type)}
@@ -79,8 +80,8 @@ class DemoProjects extends React.Component {
                 <div className="col-xs-12 col-sm-9 col-sm-pull-3 col-lg-10 col-lg-pull-2">
                   <div className="row">
                     <ul className="projects-list">
-                      {portfolio.map((project, item) =>
-                        <Project key={item} value={project} />,
+                      {portfolioFiltered.map((project, item) =>
+                        <Project key={item} project={project} />,
                       )}
                     </ul>
                   </div>
