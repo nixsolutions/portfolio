@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import Images from '../../assets/index';
+import Images from '../../assets/images/icons/index';
 import './style.css';
 
 class Project extends React.Component {
-
   render() {
-    const unicId = (Math.random()).toFixed(3);
+    function getRandomArbitrary(min, max) {
+      return (Math.random() * (max - min)) + min;
+    }
+    const unicId = (getRandomArbitrary(1, 72).toFixed(0));
+    const bgImg = require(`../../assets/images/background/background_image_${unicId}.svg`);
     return (
       <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div className="cart-thumb">
           <div className="project-image-box">
             <div className="images-inner">
-              <img className="background-image" src={this.props.value.logo_background} alt="background" />
+              <img className="background-image" src={bgImg} alt="background" />
               <img className="icon-image" src={Images[this.props.value.language]} alt="icon" />
             </div>
             <div className="button-wrapper">
