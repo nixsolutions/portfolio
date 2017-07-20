@@ -81,7 +81,7 @@ class Categories extends Component {
           </ul>
           <div
             className={checkedClass}
-            onClick={() => { this.handleClickUncheckAll(); this.state.checked = false; }}
+            onClick={() => { this.handleClickUncheckAll(); this.setState({ checked: false }); }}
           >
             <span className="uncheck-icon">X</span>
             <span className="uncheck-text">Uncheck All</span>

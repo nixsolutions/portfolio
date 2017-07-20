@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeEvery, all, call, put } from 'redux-saga/effects';
 import { getProjects, getPortfolio } from '../api/index';
 import * as actionsPortfolio from '../actions/getPortfolio';
 import * as actionsProjects from '../actions/getProjects';
@@ -8,7 +8,7 @@ export function* fetchPortfolio(projectName) {
   try {
     yield put({ type: actionsPortfolio.RECEIVE_PORTFOLIO, data });
   } catch (error) {
-    yield put({ type: actionsPortfolio.FAILURE_PORTFOLIO, data });
+    yield put({ type: actionsPortfolio.FAILURE_PORTFOLIO, error });
   }
 }
 
@@ -16,9 +16,9 @@ export function* fetchProjects() {
   const data = yield getProjects();
   try {
     yield put({ type: actionsProjects.RECEIVE_PROJECTS, data });
-    yield data.map(project => call(fetchPortfolio, project.name));
+    yield all(data.map(project => call(fetchPortfolio, project.name)));
   } catch (error) {
-    yield put({ type: actionsProjects.FAILURE_PROJECTS, data });
+    yield put({ type: actionsProjects.FAILURE_PROJECTS, error });
   }
 }
 
