@@ -8,6 +8,7 @@ class Categories extends Component {
     this.state = {
       types: props.types,
       listToggle: false,
+      checked: false,
     };
     this.handleOnClickChecked = this.handleOnClickChecked.bind(this);
   }
@@ -20,7 +21,14 @@ class Categories extends Component {
 
   handleOnClickChecked(type, index, types) {
     !type.checked ? type.checked = true : type.checked = false;
-    this.setState({ types });
+    let checkedItem = false;
+    _.each(types, (item) => {
+      if (item.checked) {
+        checkedItem = true;
+      }
+    });
+
+    this.setState({ types, checked: checkedItem });
   }
 
   handleClickUncheckAll() {
@@ -41,6 +49,11 @@ class Categories extends Component {
     const ulClass = classNames({
       'categories-inputs': true,
       active: this.state.listToggle,
+    });
+
+    const checkedClass = classNames({
+      'uncheck-inputs': true,
+      'uncheck-inputs-disabled': !this.state.checked,
     });
     return (
       <div className="filters-inner">
@@ -67,8 +80,8 @@ class Categories extends Component {
             )}
           </ul>
           <div
-            className="uncheck-inputs"
-            onClick={() => this.handleClickUncheckAll()}
+            className={checkedClass}
+            onClick={() => { this.handleClickUncheckAll(); this.state.checked = false; }}
           >
             <span className="uncheck-icon">X</span>
             <span className="uncheck-text">Uncheck All</span>
