@@ -6,19 +6,19 @@ import * as actionsProjects from '../actions/getProjects';
 export function* fetchPortfolio(projectName) {
   const data = yield getPortfolio(projectName);
   try {
-    yield put({ type: actionsPortfolio.RECEIVE_PORTFOLIO, data });
+    yield put(actionsPortfolio.receivePortfolio(data));
   } catch (error) {
-    yield put({ type: actionsPortfolio.FAILURE_PORTFOLIO, error });
+    yield put(actionsPortfolio.failurePortfolio(error));
   }
 }
 
 export function* fetchProjects() {
   const data = yield getProjects();
   try {
-    yield put({ type: actionsProjects.RECEIVE_PROJECTS, data });
+    yield put(actionsProjects.receiveProjects(data));
     yield all(data.map(project => call(fetchPortfolio, project.name)));
   } catch (error) {
-    yield put({ type: actionsProjects.FAILURE_PROJECTS, error });
+    yield put(actionsProjects.failureProjects(error));
   }
 }
 
