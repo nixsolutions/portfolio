@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import _ from 'lodash';
@@ -98,5 +99,14 @@ class Categories extends Component {
     );
   }
 }
+
+Categories.propTypes = {
+  types: PropTypes.arrayOf(PropTypes.shape({
+    checked: PropTypes.boolean,
+    name: PropTypes.string,
+  })).isRequired,
+  uncheckAll: PropTypes.func.isRequired,
+  onClickFilter: PropTypes.func.isRequired,
+};
 
 export default Categories;

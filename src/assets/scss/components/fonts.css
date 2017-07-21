@@ -2,19 +2,19 @@
   font-family: 'proba_proregular', serif; }
 
 @font-face {
+  font-family: 'proba_proregular';
+  src: url("../fonts/mint_type_-_proba_pro_regular-webfont.woff2") format("woff2"), url("../fonts/mint_type_-_proba_pro_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
   font-family: 'proba_probold';
-  src: url("./../../fonts/mint_type_-_proba_pro_bold.woff2") format("woff2"), url("./../../fonts/mint_type_-_proba_pro_bold.woff") format("woff");
+  src: url("../fonts/mint_type_-_proba_pro_bold-webfont.woff2") format("woff2"), url("../fonts/mint_type_-_proba_pro_bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'proba_prolight';
-  src: url("./../../fonts/mint_type_-_proba_pro_light.woff2") format("woff2"), url("./../../fonts/mint_type_-_proba_pro_light.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'proba_proregular';
-  src: url("./../../fonts/mint_type_-_proba_pro_regular.woff2") format("woff2"), url("./../../fonts/mint_type_-_proba_pro_regular.woff") format("woff");
+  src: url("../fonts/mint_type_-_proba_pro_light-webfont.woff2") format("woff2"), url("../fonts/mint_type_-_proba_pro_light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }

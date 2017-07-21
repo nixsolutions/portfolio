@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import Images from '../../assets/images/icons/index';
 import './style.css';
@@ -9,6 +10,7 @@ class Project extends React.Component {
       return (Math.random() * (max - min)) + min;
     }
     const unicId = (getRandomArbitrary(1, 72).toFixed(0));
+    // eslint-disable-next-line
     const bgImage = require(`../../assets/images/background/background_image_${unicId}.svg`);
     this.setState({ bgImage, unicId });
   }
@@ -55,5 +57,16 @@ class Project extends React.Component {
     );
   }
 }
+
+Project.propTypes = {
+  project: PropTypes.shape({
+    name: PropTypes.string,
+    repository: PropTypes.string,
+    demo: PropTypes.string,
+    description: PropTypes.string,
+    language: PropTypes.string,
+    technology: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+};
 
 export default Project;

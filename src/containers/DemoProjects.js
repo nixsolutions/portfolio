@@ -1,6 +1,7 @@
 import _ from 'lodash';
-import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import Categories from './Categories';
 import { requestProjects } from '../actions/getProjects';
@@ -9,7 +10,7 @@ import Spinner from '../components/spinner/index';
 import Project from '../components/project';
 import rootstore from '../store/store';
 
-class DemoProjects extends React.Component {
+class DemoProjects extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,6 +99,20 @@ class DemoProjects extends React.Component {
     );
   }
 }
+
+DemoProjects.propTypes = {
+  portfolio: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    repository: PropTypes.string,
+    demo: PropTypes.string,
+    description: PropTypes.string,
+    language: PropTypes.string,
+    technology: PropTypes.arrayOf(PropTypes.string),
+  })).isRequired,
+  projects: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+  })).isRequired,
+};
 
 const mapStateToProps = function (store) {
   return {
