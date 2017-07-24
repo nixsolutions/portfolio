@@ -5,13 +5,14 @@ import Projects from './containers/DemoProjects';
 import Home from './components/home';
 import AddProject from './components/addProject';
 import Root from './components/root';
+import PrivateRoute from './common/privateRoute';
 
 export default () => (
   <Root>
     <Route exact path="/" component={Home} />
     <Route path="/project" component={Demo} />
     <Route path="/demo" component={Projects} />
-    <Route path="/addProject" component={AddProject} />
+    <PrivateRoute path="/addProject" component={AddProject} />
   </Root>
 );
 
