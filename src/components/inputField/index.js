@@ -9,18 +9,24 @@ class InputField extends Component {
     this.state = {
       invalidField: false,
     };
+    this.handleValidation = this.handleValidation.bind(this);
   }
   handleValidation(i) {
+    this.setState({ invalidField: true });
+    console.log(i.target.value.length);
     if (i.target.value.length === 0) {
+      console.log('1');
       this.setState({ invalidField: true });
     } else {
+      console.log('2');
       this.setState({ invalidField: false });
     }
+    console.log(this.state.invalidField);
     this.props.valid(this.state.invalidField);
   }
 
   resetInvalid() {
-    this.setState({ invalidField: false });
+    // this.setState({ invalidField: false });
   }
 
   render() {
