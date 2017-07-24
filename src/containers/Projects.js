@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AddProject from '../components/addProject';
 
 class Projects extends Component {
   constructor() {
@@ -13,7 +12,7 @@ class Projects extends Component {
   render() {
     return (
       <div className="container">
-        <AddProject />
+        List of projects
       </div>
     );
   }

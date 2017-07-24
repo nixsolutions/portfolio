@@ -443,6 +443,30 @@ input[type=checkbox].categories-input:checked ~ .categories-label:before {
   }
 }
 
+.button-small {
+  border: 2px solid #fff;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 50px;
+  transition: 0.3s;
+  font-size: 20px;
+  color: #fff;
+  max-width: 30%;
+  width: 100%;
+  &:hover,
+  &:active {
+    background-color: #fff;
+    color: $blue;
+  }
+  @media (min-width: 600px) {
+    padding: 12px 50px;
+    min-width: 240px;
+    max-width: auto;
+    width: auto;
+    font-size: 26px;
+  }
+}
+
 .welcome-image {
   height: 40vh;
   width: 100%;
