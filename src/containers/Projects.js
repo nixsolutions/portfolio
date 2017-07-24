@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InputField from '../components/inputField';
+import AddProject from '../components/addProject';
 
 class Projects extends Component {
   constructor() {
@@ -10,30 +10,10 @@ class Projects extends Component {
     };
   }
 
-  handleOnChange(field) {
-    console.log(field);
-  }
-
   render() {
     return (
       <div className="container">
-        <span>Projects component</span>
-        <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <InputField
-            lable={'projectName'}
-            name={'ProjectName'}
-            onChange={field => this.handleOnChange(field)}
-            valid={isvalid => this.setState({ valid: isvalid })}
-          />
-
-          <InputField
-            name={'Name'}
-            onChange={field => this.handleOnChange(field)}
-            valid={isvalid => this.setState({ valid: isvalid })}
-          />
-
-          <button disabled={!this.state.valid} type="submit" className="btn btn-default" >Submit</button>
-        </form>
+        <AddProject />
       </div>
     );
   }

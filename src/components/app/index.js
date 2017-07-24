@@ -9,8 +9,8 @@ const App = () => (
   <div className="page-container mobile-fix-height">
     <Header />
     <Route exact path="/" component={Home} />
-    <Route exact path="/project" component={Demo} />
-    <Route exact path="/demo" component={Projects} />
+    <Route path="/project" component={Demo} />
+    <Route path="/demo" component={Projects} />
   </div>
 );
 
