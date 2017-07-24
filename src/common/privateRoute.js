@@ -5,6 +5,11 @@ const fakeAuth = {
   isAuthenticated: true,
 };
 
+setTimeout(() => {
+  fakeAuth.isAuthenticated = false;
+}, 5000, this);
+
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
