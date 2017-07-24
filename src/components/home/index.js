@@ -16,8 +16,6 @@ const Home = () => (
           <span className="welcome-text">OR</span>
           <Link className="button-large" to="/demo">DEMO</Link>
         </div>
-        <Link className="button-small" to="/addProject">Add Project</Link>
-
       </div>
     </div>
     <div className="welcome-image" />
