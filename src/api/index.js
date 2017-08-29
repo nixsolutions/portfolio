@@ -14,5 +14,6 @@ export function getProjects() {
 
 export function getPortfolio(reposName) {
   return fetch(`${Constants.API_USERCONTENT}${Constants.USER_NAME}/${reposName}/master/.portfolio/.Portfolio.json`)
-    .then(r => r.json());
+    .then(r => r.json())
+    .catch(() => {});
 }
