@@ -4,7 +4,7 @@ import Constants from '../constants/api.config';
 export function getProjects() {
   const header = {
     headers: {
-      Authorization: 'token 31d5f34a2f49a290e560d2904f22d0b78dc6d4c7',
+      Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
     },
   };
 
