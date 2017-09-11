@@ -12,8 +12,8 @@ const Home = () => (
           </h3>
         </div>
         <div className="welcome-button-wrapper">
-          <Link className="button-large" to="/project">PROJECT</Link>
-          <span className="welcome-text">OR</span>
+          {/* <Link className="button-large" to="/project">PROJECT</Link>
+          <span className="welcome-text">OR</span> */}
           <Link className="button-large" to="/demo">DEMO</Link>
         </div>
       </div>
