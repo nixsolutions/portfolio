@@ -179,6 +179,10 @@ input[type=checkbox].categories-input:checked ~ .categories-label:before {
     .uncheck-inputs {
       margin-bottom: 0; } }
 
+.uncheck-inputs-disabled span {
+  color: #999999;
+  cursor: default; }
+
 .uncheck-icon {
   display: inline-block;
   margin-right: 10px;
@@ -199,6 +203,11 @@ input[type=checkbox].categories-input:checked ~ .categories-label:before {
   vertical-align: top;
   font-size: 16px;
   width: 100%; }
+
+.projects-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; }
 
 .project-image-box {
   position: relative;
@@ -365,6 +374,27 @@ input[type=checkbox].categories-input:checked ~ .categories-label:before {
     color: #00aeef; }
   @media (min-width: 600px) {
     .button-large {
+      padding: 12px 50px;
+      min-width: 240px;
+      max-width: auto;
+      width: auto;
+      font-size: 26px; } }
+
+.button-small {
+  border: 2px solid #fff;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 50px;
+  transition: 0.3s;
+  font-size: 20px;
+  color: #fff;
+  max-width: 30%;
+  width: 100%; }
+  .button-small:hover, .button-small:active {
+    background-color: #fff;
+    color: #00aeef; }
+  @media (min-width: 600px) {
+    .button-small {
       padding: 12px 50px;
       min-width: 240px;
       max-width: auto;
