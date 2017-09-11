@@ -2,7 +2,7 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
+import createHistory from 'history/createHashHistory';
 import reducers from '../reducers/index';
 import rootSaga from '../saga/index';
 
