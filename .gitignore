@@ -15,4 +15,6 @@ yarn-error.log*
 
 src/**/*.css
 
+.idea/*
+
 .env.local
