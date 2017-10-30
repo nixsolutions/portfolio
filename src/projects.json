@@ -61,5 +61,14 @@
     "description": " Football tournament results site",
     "language": "php",
     "technology": ["php", "laravel"]
+  },
+  {
+    "name": "Bluz, a lightweight PHP Framework",
+    "repository": "https://github.com/bluzphp/",
+    "demo": "http://bluz.demo.php.nixdev.co/",
+    "logo_background": "bg10",
+    "description": "Lightweight PHP Framework",
+    "language": "php",
+    "technology": ["php", "mvc", "composer", "jquery"]
   }
 ]
