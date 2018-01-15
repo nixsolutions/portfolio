@@ -27,9 +27,9 @@ class Project extends React.Component {
               <img className="icon-image" src={Images[project.language]} alt="icon" />
             </div>
             <div className="button-wrapper">
-              <a href={project.repository} className="source-button">Source</a>
+              <a href={project.repository} target="_blank" className="source-button">Source</a>
               {project.demo !== '' &&
-              <a href={project.demo} className="code-button">Demo</a>
+              <a href={project.demo} target="_blank" className="code-button">Demo</a>
               }
             </div>
           </div>
