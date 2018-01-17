@@ -14,6 +14,15 @@ import WordPress from './WordPress.svg';
 import sass from './sass.svg';
 import html from './html.svg';
 import TypeScript from './typescript.svg';
+import php from './php.svg';
+import yandex from './yandex.svg';
+import rest from './rest.svg';
+import swagger from './swagger.svg';
+import mysql from './mysql.svg';
+import laravel from './laravel.svg';
+import yii from './yii.svg';
+import mobile from './mobile.svg';
+import apple from './apple.svg';
 
 const images = {
   angular,
@@ -32,5 +41,14 @@ const images = {
   sass,
   html,
   TypeScript,
+  yandex,
+  php,
+  rest,
+  swagger,
+  mysql,
+  laravel,
+  yii,
+  mobile,
+  apple,
 };
 export default images;

@@ -33,7 +33,7 @@
     "logo_background": "bg5",
     "description": "Simple php library for iOS push notifications with token based authentication and HTTP/2",
     "language": "php",
-    "technology": ["php", "ios", "mobile"]
+    "technology": ["php", "apple", "mobile"]
   },
   {
     "name": "Laravel REST API boilerplate",
