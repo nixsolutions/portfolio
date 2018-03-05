@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Shelving - Three.js Demo 3D Application",
+    "repository": "https://github.com/nixsolutions/shelving",
+    "demo": "https://nixsolutions.github.io/shelving/",
+    "logo_background": "bg5",
+    "description": "Specify shelving dimensions, choose materials and check how it looks in your room. The application also calculates amounts of wood and prices.",
+    "language": "js",
+    "technology": ["js", "WebGL", "three.js"]
+  },
+  {
+    "name": "Official PHP SDK for Yandex APIs",
+    "repository": "https://github.com/nixsolutions/yandex-php-library",
+    "demo": "",
+    "logo_background": "bg5",
+    "description": "Official Yandex PHP SDK that allows developers to integrate Yandex services like Yandex Disk, Yandex Market for Partner, Yandex Market Content, Yandex OAuth, Yandex Site Search Pinger, Yandex Safe Browsing, Yandex Metrica, Yandex Dictionary, Yandex Speller, Yandex DataSync",
+    "language": "php",
+    "technology": ["yandex", "php", "rest"]
+  },
+  {
+    "name": "Demo Yii2 application",
+    "repository": "https://github.com/nixsolutions/yii2-starter",
+    "demo": "",
+    "logo_background": "bg5",
+    "description": "Demo PHP application built on top of Yii2 framework and Mysql database",
+    "language": "php",
+    "technology": ["php", "yii", "mysql"]
+  },
+  {
+    "name": "Phpusios - php library for iOS push notifications",
+    "repository": "https://github.com/nixsolutions/phpushios",
+    "demo": "",
+    "logo_background": "bg5",
+    "description": "Simple php library for iOS push notifications with token based authentication and HTTP/2",
+    "language": "php",
+    "technology": ["php", "apple", "mobile"]
+  },
+  {
+    "name": "Laravel REST API boilerplate",
+    "repository": "https://github.com/nixsolutions/laravel-api-boilerplate",
+    "demo": "",
+    "logo_background": "bg5",
+    "description": "Setup development environment with Homestead (per-project installation)",
+    "language": "php",
+    "technology": ["php", "rest", "laravel"]
+  },
+  {
+    "name": "Gallery built on top of Angular",
+    "repository": "https://github.com/nixsolutions/angular-gallery",
+    "demo": "https://gallery-9c665.firebaseapp.com/gallery",
+    "logo_background": "bg5",
+    "description": "Test project implements an example of gallery of images.",
+    "language": "php",
+    "technology": ["js", "angular"]
+  },
+  {
+    "name": "Good Gateway Football",
+    "repository": "https://github.com/nixsolutions/ggf",
+    "demo": "http://ggf.demo.php.nixdev.co/",
+    "logo_background": "bg5",
+    "description": " Football tournament results site",
+    "language": "php",
+    "technology": ["php", "laravel"]
+  },
+  {
+    "name": "Bluz, a lightweight PHP Framework",
+    "repository": "https://github.com/bluzphp/",
+    "demo": "http://bluz.demo.php.nixdev.co/",
+    "logo_background": "bg10",
+    "description": "Lightweight PHP Framework",
+    "language": "php",
+    "technology": ["php", "mvc", "composer", "jquery"]
+  }
+]
