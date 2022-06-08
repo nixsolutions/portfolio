@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import Images from '../../assets/images/icons/index';
-import './style.css';
+import './style.scss';
 
 class Project extends React.Component {
   componentWillMount() {
