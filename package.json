@@ -1,19 +1,16 @@
 {
   "name": "src",
-  "homepage": "http://nixsolutions.github.io/portfolio/",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
-    "create-react-app-sass": "^1.1.0",
     "es6-promise": "^4.1.1",
     "eslint-config-airbnb": "^15.0.2",
     "history": "^4.6.3",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
-    "node-sass-chokidar": "0.0.3",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -28,7 +25,8 @@
     "redux-form": "^7.0.3",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.15.4",
-    "sanitize.css": "^5.0.0"
+    "sanitize.css": "^5.0.0",
+    "sass": "^1.52.3"
   },
   "scripts": {
     "dev": "npm run watch-css | npm run start",
@@ -40,7 +38,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint src test build"
+    "lint": "eslint src test build",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -50,6 +50,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.1",
     "eslint-plugin-react": "^7.0.1",
+    "gh-pages": "^4.0.0",
     "json-server": "^0.11.2"
   }
 }
